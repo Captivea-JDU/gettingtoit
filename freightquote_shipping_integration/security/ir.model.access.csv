@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_freightquote_salesman,freightquote,model_freightquote_package,sales_team.group_sale_salesman,1,1,1,1
+access_freightquote_salesmanager,freightquote_manager,model_freightquote_package,sales_team.group_sale_manager,1,1,1,1
+access_freightquote_shipping_charge,freightquote_shipping_charge,model_freightquote_shipping_charge,,1,1,1,1
