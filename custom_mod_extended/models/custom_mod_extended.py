@@ -51,5 +51,5 @@ class CustomModExtended(models.Model):
         self.x_studio_position =  self.partner_id.function
         
     @api.onchange('product_id')
-    def autopop_tax(self):
-        self.tax_id = 0.15
+    def autopop_unitprice(self):
+        self.price_unit = 15.00
