@@ -52,4 +52,4 @@ class CustomModExtended(models.Model):
         
     @api.onchange('product_id')
     def autopop_tax(self):
-        self.tax_id = 15.0000
+        self.tax_id = 0.15
