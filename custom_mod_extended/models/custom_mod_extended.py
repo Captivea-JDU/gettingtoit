@@ -42,6 +42,14 @@ class CustomModExtended(models.Model):
     cap_selection_field = fields.Selection([('knowledge', 'Knowledge'),('wisdom', 'Wisdom'),('understanding', 'Understanding')], string='Cap Selection Field')
     cap_four_math = fields.Selection([('freedom', 'Freedom'),('culture', 'Culture'),('power', 'Power'),('refinement', 'Refinement')], string='Todays Mathmatics')
     cap_ayo = fields.Many2one('res.partner', string='Call these folk')
+
+    @api.onchange('partner_id')
+    def _autocomplete(self):
+        self.x_studio_cust = self.partner_id.name
+        self.x_studio_phone =  self.partner_id.phone
+        self.x_studio_email = self.partner_id.email
+        self.x_studio_position =  self.partner_id.function
+        
     #@api.onchange('cap_year')
     #def calculate_age(cap_year):
         #cap_year = 2023
