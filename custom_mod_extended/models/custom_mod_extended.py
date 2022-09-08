@@ -50,9 +50,6 @@ class CustomModExtended(models.Model):
         self.x_studio_email = self.partner_id.email
         self.x_studio_position =  self.partner_id.function
         
-    #@api.onchange('cap_year')
-    #def calculate_age(cap_year):
-        #cap_year = 2023
-        #cap_customer_age = cap_year
-
-        #return cap_customer_age
+    @api.onchange('order_line')
+    def autopop_tax(self):
+        self.tax_id = 15.0000
