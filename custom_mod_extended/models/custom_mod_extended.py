@@ -50,6 +50,6 @@ class CustomModExtended(models.Model):
         self.x_studio_email = self.partner_id.email
         self.x_studio_position =  self.partner_id.function
         
-    @api.onchange('order_line')
+    @api.onchange('product_id')
     def autopop_tax(self):
         self.tax_id = 15.0000
