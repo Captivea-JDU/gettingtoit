@@ -19,7 +19,7 @@
 				<field widget="radio" name="cap_selection_field"/>
 				<field widget="radio" name="cap_four_math"/> -->
         
-			</group>
+			<!-- </group> -->
 			</xpath>
 			<!-- This is our order line custom tab-->
 			<xpath expr="//form//sheet//page[@name='order_lines']" position="after">
