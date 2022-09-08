@@ -1,0 +1,125 @@
+<odoo>
+	<record id="sales_view" model="ir.ui.view"> 
+		<field name="name">sale.order.form</field>
+		<field name="model">sale.order</field>
+		<field name="inherit_id" ref="sale.view_order_form"/>	
+		<field name="arch" type="xml">
+			<xpath expr="//form//sheet//group[@name='order_details']" position="after">
+			 <!-- <field name="cap_display_type1" invisible="1"/>
+				<group attrs="{'invisible': [('cap_display_type1', '!=', False)]}">
+				<field name="cap_customer_birth_year" placeholder="Customer Birth Year" modifiers="{}"/>
+				<field name="cap_customer_phone_number" placeholder="Customer Phone Number" modifiers="{}"/>
+				<field name="cap_customer_nickname" placeholder="Customer Nickname" modifiers="{}"/>
+				<field name="cap_customer_age" placeholder="Customer Age" attrs="{'invisible': [('cap_selection_field', '=', 'understanding')]}" />
+				<field name="cap_customer_address" placeholder="Customer Address" modifiers="{}"/>
+				<field name="cap_customer_favorite_genre" placeholder="Favorite Genre" modifiers="{}"/>
+				<field name="cap_year" placeholder="Year" modifiers="{}"/>
+                <field name="cap_ayo"/>
+				if understanding is selected, cap_customer_age will disappear  
+				<field widget="radio" name="cap_selection_field"/>
+				<field widget="radio" name="cap_four_math"/> -->
+        
+			</group>
+			</xpath>
+			<!-- This is our order line custom tab-->
+			<xpath expr="//form//sheet//page[@name='order_lines']" position="after">
+				<page string="Custom Tab Boi" >
+				
+				<!--<field
+                                name="order_line"
+                                widget="section_and_note_one2many"
+                                mode="tree,kanban"
+                                attrs="{'readonly': [('state', 'in', ('done','cancel'))]}"
+                            >
+				</field>-->
+				<form>
+                                    <!-- <field name="cap_display_type" invisible="1"/>
+                                    
+                                        We need the sequence field to be here for new lines to be added at the correct position.
+                                        TODO: at some point we want to fix this in the framework so that an invisible field is not required.
+                                   
+                                    <field name="cap_sequence" invisible="1"/>
+                                    <field name="cap_product_uom_category_id" invisible="1"/>
+                                    <group>
+                                        <group attrs="{'invisible': [('cap_display_type', '!=', False)]}">
+                                            <field name="cap_product_id"/>
+                                            <field name="cap_invoice_status" invisible="1"/>
+                                            <field name="cap_qty_to_invoice" invisible="1"/>
+                                            <label for="cap_product_uom_qty"/>
+                                            <div class="o_row" name="ordered_qty">
+                                                <field name="cap_product_uom_qty"/>
+                                                <field name="cap_product_uom"/>
+                                            </div>
+                                            <label for="cap_qty_delivered" string="Delivered"/>
+                                            <div name="delivered_qty">
+                                                <field name="cap_qty_delivered"/>
+                                            </div>
+                                            <label for="cap_qty_invoiced" string="Invoiced"/>
+                                            <div name="invoiced_qty">
+                                                <field name="cap_qty_invoiced"/>
+                                            </div>
+                                            <field name="cap_product_packaging_id" context="{'default_product_id': cap_product_id, 'tree_view_ref':'product.product_packaging_tree_view', 'form_view_ref':'product.product_packaging_form_view'}" groups="product.group_stock_packaging" />
+                                            <field name="cap_price_unit"/>
+                                            <field name="cap_tax_id" widget="many2many_tags" options="{'no_create': True}" context="{'search_view_ref': 'account.account_tax_view_search'}"/>
+                                            <label for="cap_discount" groups="product.group_discount_per_so_line"/>
+                                            <div name="discount" groups="product.group_discount_per_so_line">
+                                                <field name="cap_discount" class="oe_inline"/>
+                                            </div>
+                                            
+                                                We need the sequence field to be here
+                                                because we want to be able to overwrite the default sequence value in the JS
+                                                in order for new lines to be added at the correct position.
+                                                NOTE: at some point we want to fix this in the framework so that an invisible field is not required.
+                                           
+                                            <field name="cap_sequence" invisible="1"/>
+                                        </group>
+				
+                                        <group attrs="{'invisible': [('cap_display_type', '!=', False)]}">
+                                            <label for="cap_customer_lead"/>
+                                            <div name="lead">
+                                                <field name="cap_customer_lead" class="oe_inline"/> days
+                                            </div>
+                                            <field name="cap_analytic_tag_ids" widget="many2many_tags" groups="analytic.group_analytic_tags" options="{'color_field': 'color'}"/>
+                                        </group>
+                                    </group>
+                                    <label for="cap_name" string="Description" attrs="{'invisible': [('cap_display_type', '!=', False)]}"/>
+                                    <label for="cap_name" string="Section Name (eg. Products, Services)" attrs="{'invisible': [('cap_display_type', '!=', 'line_section')]}"/>
+                                    <label for="cap_name" string="Note" attrs="{'invisible': [('cap_display_type', '!=', 'line_note')]}"/>
+                                    <field name="cap_name"/>
+                                    <div name="invoice_lines" groups="base.group_no_one" attrs="{'invisible': [('cap_display_type', '!=', False)]}">
+                                        <label for="cap_invoice_lines"/>
+                                        <field name="cap_invoice_lines"/>
+                                    </div>
+                                    <field name="cap_state" invisible="1"/>
+                                    <field name="cap_company_id" invisible="1"/>		 -->
+                                </form>
+					</page>	
+			</xpath>
+			<!-- <xpath expr="//form" position="inside">	
+					<button name='urmom' type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+					Launch demo modal
+					</button>
+                    <form>
+					<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog" role="document">
+							<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+										 	<button name="ursis" type="button" class="close" data-dismiss="modal" aria-label="Close">...</button>
+									</div>
+									<div class="modal-body">
+									</div>
+										<div class="modal-footer">
+											<button name='urdad' type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+											<button name='urbro' type="button" class="btn btn-primary">Save changes</button>
+										</div>
+								</div>
+						</div>
+					</div>
+                    </form>
+					</xpath> -->
+		</field>
+		
+
+	</record>
+</odoo>
